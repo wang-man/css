@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		body {
+			height: 1000px;
+		}
+
+		.mask {
+			position: fixed;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: -10px;
+			opacity: 0.6;
+			background-color: #000;
+			z-index: 10;
+			overflow: auto;
+			overscroll-behavior: contain;
+			-ms-scroll-chaining: contain;
+		}
+
+		/* 拥有子元素，且子元素超过自己的高度造成滚动，overscroll-behavior才会生效 */
+		.mask-content {
+			height: 101%;
+		}
+
+		.modal {
+			position: fixed;
+			width: 80%;
+			left: 10%;
+			height: 60vh;
+			padding: 10px;
+			top: 20vh;
+			z-index: 11;
+			overflow: auto;
+			border-radius: 6px;
+			background-color: #fff;
+			overscroll-behavior: contain;
+			-ms-scroll-chaining: contain;
+		}
+	</style>
+</head>
+
+<body>
+	<h1></h1>
+	<h2>详见张鑫旭博客：<a href="https://www.zhangxinxu.com/wordpress/2020/01/css-overscroll-behavior/"
+			target="_blank">css-overscroll-behavior</a></h2>
+
+	<hr>
+
+	<h3>
+		适用于：1。弹窗浮层不影响底部区域； 2.局部区块内容上拉刷新，但又不会滚动父级窗口，还有就是浮层的滚动时候不影响底层;</h3>
+	<h3></h3>
+
+	<br>
+	<br>
+
+	<button id='btn'>打开弹框</button>
+
+	<br>
+	<br>
+
+	<div id="modal" class="modal" hidden>
+		<p class="modal-content">
+			我是一个浮层弹框，我也有很长很长的内容，会滚动哦我是一个浮层弹框，我也有很长很长的内容，会滚动哦我是一个浮层弹框，我也有很长很长的内容，会滚动哦我是一个浮层弹框，我也有很长很长的内容，会滚动哦我是一个浮层弹框，我也有很长很长的内容，会滚动哦我是一个浮层弹框，我也有很长很长的内容，会滚动哦我是一个浮层弹框，我也有很长很长的内容，会滚动哦我是一个浮层弹框，我也有很长很长的内容，会滚动哦我是一个浮层弹框，我也有很长很长的内容，会滚动哦我是一个浮层弹框，我也有很长很长的内容，会滚动哦我是一个浮层弹框，我也有很长很长的内容，会滚动哦我是一个浮层弹框，我也有很长很长的内容，会滚动哦我是一个浮层弹框，我也有很长很长的内容，会滚动哦我是一个浮层弹框，我也有很长很长的内容，会滚动哦我是一个浮层弹框，我也有很长很长的内容，会滚动哦我是一个浮层弹框，我也有很长很长的内容，会滚动哦我是一个浮层弹框，我也有很长很长的内容，会滚动哦我是一个浮层弹框，我也有很长很长的内容，会滚动哦我是一个浮层弹框，我也有很长很长的内容，会滚动哦我是一个浮层弹框，我也有很长很长的内容，会滚动哦我是一个浮层弹框，我也有很长很长的内容，会滚动哦我是一个浮层弹框，我也有很长很长的内容，会滚动哦我是一个浮层弹框，我也有很长很长的内容，会滚动哦我是一个浮层弹框，我也有很长很长的内容，会滚动哦我是一个浮层弹框，我也有很长很长的内容，会滚动哦我是一个浮层弹框，我也有很长很长的内容，会滚动哦我是一个浮层弹框，我也有很长很长的内容，会滚动哦我是一个浮层弹框，我也有很长很长的内容，会滚动哦我是一个浮层弹框，我也有很长很长的内容，会滚动哦我是一个浮层弹框，我也有很长很长的内容，会滚动哦我是一个浮层弹框，我也有很长很长的内容，会滚动哦我是一个浮层弹框，我也有很长很长的内容，会滚动哦我是一个浮层弹框，我也有很长很长的内容，会滚动哦
+		</p>
+	</div>
+	<div class="mask" id="mask" hidden>
+		<div class="mask-content"></div>
+	</div>
+
+	<script>
+		var btn = document.querySelector('#btn');
+		var modal = document.querySelector('#modal');
+		var mask = document.querySelector('#mask');
+		btn.onclick = function () {
+			modal.style.display = 'block';
+			mask.style.display = 'block';
+		}
+	</script>
+</body>
+
+</html>

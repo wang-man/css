@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+	<style>
+		.bar {
+			width: 500px;
+			height: 40px;
+			background-color: #ddd;
+			margin-bottom: 30px;
+		}
+
+		.bar:before {
+			height: 100%;
+			line-height: 40px;
+			counter-reset: progress var(--percent);		/* 获取变量值，创建一个数字 */
+			content: counter(progress)'%\2002';				/* 计数器只能跟content属性在一起的时候才有作用 */
+			display: block;
+			width: calc(500px * var(--percent) / 100);
+			color: #fff;
+			background-color: #2486ff;
+			text-align: right;
+			white-space: nowrap;
+			overflow: hidden;
+		}
+
+		:root{
+			--color: red;
+		}
+
+		.box2{
+			color: var(--color);
+		}
+	</style>
+</head>
+
+<body>
+	<h1></h1>
+	<h2>css变量的概念: </h2>
+	变量声明： --变量名: 变量值 <br>
+	变量使用： var(--变量名) <br>
+
+	<hr>
+	<br>
+	<br>
+	<div class="box">
+		<div>进度1</div>
+		<div class='bar' style="--percent: 30"></div>
+		<div>进度2</div>
+		<div class='bar' style="--percent: 60"></div>
+		<div>进度3</div>
+		<div class='bar' style="--percent: 90"></div>
+	</div>
+
+	<div class="box2">
+		验证css变量的使用
+	</div>
+	<br>
+	<br>
+
+</body>
+
+</html>

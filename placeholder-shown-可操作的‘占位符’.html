@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+  <title></title>
+  <link rel="stylesheet" href="./style/common.css">
+  <style>
+    .input-outline-x {
+      width: -webkit-fit-content;
+      width: -moz-fit-content;
+      width: fit-content;
+      position: relative;
+    }
+
+    .input-outline {
+      padding: 13px 10px 13px;
+      border: 1px solid #d0d0d5;
+      border-radius: 4px;
+      background-color: transparent;
+      outline: none;
+      transition: border-color .25s;
+    }
+
+    .input-outline:focus {
+      border-color: #2486ff;
+    }
+
+    /* 默认placeholder颜色透明不可见 */
+    .input-control:placeholder-shown::placeholder {
+      color: transparent;
+    }
+    .input-control:-ms-input-placeholder {
+      color: transparent;
+    }
+
+    .input-label {
+      position: absolute;
+      font-size: 16px;
+      line-height: 1.5;
+      left: 10px;
+      top: 10px;
+      color: #a2a9b6;
+      padding: 0 2px;
+      transform-origin: 0 0;
+      /* 重要：让其可被点透 */
+      pointer-events: none;
+      transition: all .25s;
+    }
+
+    /* 关键部分 */
+    .input-control:not(:placeholder-shown)~.input-label,
+    .inputFocus.input-label,
+    .input-control:focus~.input-label {
+      color: #2486ff;
+      transform: scale(0.75) translate(-2px, -26px);
+    }
+ 
+
+    /* 线框交互下有个白色背景 */
+    .input-outline~.input-label {
+      background-color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="code">
+    <h4>语法:</h4>
+    <pre>
+      :placeholder-shown：当输入框的placeholder内容显示的时候，输入框该如何展示
+    </pre>
+  </div>
+  <br>
+  <h4>示例1:</h4>
+  <div class="box">
+    <div class="input-outline-x">
+      <input id="inputRef" class="input-control input-outline" placeholder="邮箱">
+      <label for='inputRef' id="inputLabel" class="input-label">请输入邮箱</label>
+    </div>
+  </div>
+
+
+  <script>
+
+    // 兼容IE
+    var inputRef = document.querySelector('#inputRef');
+    var inputLabel = document.querySelector('#inputLabel');
+    inputRef.addEventListener('input', function () {
+      var val = this.value;
+      if (val) {
+        inputLabel.classList.add('inputFocus');
+      }else{
+        inputLabel.classList.remove('inputFocus');
+      }
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box{
+      width: 100px;
+      height: 100px;
+      background-color: #f50;
+      animation: fadeout 3s ease 2;
+      animation-direction: alternate;/* 动画反向播放也算一次，因此动画播放次数设置为1的时候这个属性不会生效 */
+    }
+
+    @keyframes fadeout {
+      0% {opacity: 1;}
+      /* 50% {opacity: 0.2;} */
+      100% {opacity: 0;}
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    
+  </div>
+</body>
+</html>

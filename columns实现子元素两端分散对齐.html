@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		*{padding: 0; margin: 0; gap: 0;}		/*如果不设置gap，则会有一个默认的gap*/
+		.box{
+			columns: 3;
+			gap: 100px;
+		}
+		.child{background-color: aqua;}
+	</style>
+</head>
+
+<body>
+	<h1>columns轻松实现子元素分散对齐。相比flex的justify-content: space-between更为简洁。</h1>
+	<br>
+	<br>
+	<br>
+	<div class="box">
+		<div class="child">1</div>
+		<div class="child">2</div>
+		<div class="child">3</div>
+	</div>
+
+</body>
+
+</html>

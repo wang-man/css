@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+	<style>
+		.box{
+			width: 200px;
+			height: 200px;
+			background: url('./img/4.jpg') no-repeat left top / 100% 100%;
+			/* background-size: 100% auto; */
+			box-shadow: 2px 2px 10px #999;
+			transition: background-image 1s;
+		}
+
+		.box:hover{
+			background-image: url('./img/3.jpg');
+		}
+	</style>
+</head>
+
+<body id="body" a='123'>
+	<h1></h1>
+	<h2>详见张鑫旭博客：<a href="https://www.zhangxinxu.com/wordpress/2020/08/background-image-animation/"
+			target="_blank">background-image-animation/</a></h2>
+
+	<hr>
+
+	<h3>背景图片也可以实现过渡效果了</h3>
+	<h3>实际是使用transition过渡，过渡的属性是background-image即可，如：transition: background-image 1s</h3>
+
+	<br>
+	<br>
+	<div class="box"></div>
+	<br>
+	<br>
+
+</body>
+
+</html>
