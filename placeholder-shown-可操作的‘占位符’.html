@@ -31,6 +31,7 @@
     .input-control:placeholder-shown::placeholder {
       color: transparent;
     }
+
     .input-control:-ms-input-placeholder {
       color: transparent;
     }
@@ -44,19 +45,20 @@
       color: #a2a9b6;
       padding: 0 2px;
       transform-origin: 0 0;
-      /* 重要：让其可被点透 */
       pointer-events: none;
+      /* 重要：让其可被点透 */
       transition: all .25s;
     }
 
     /* 关键部分 */
     .input-control:not(:placeholder-shown)~.input-label,
     .inputFocus.input-label,
+    /* 兼容IE */
     .input-control:focus~.input-label {
       color: #2486ff;
       transform: scale(0.75) translate(-2px, -26px);
     }
- 
+
 
     /* 线框交互下有个白色背景 */
     .input-outline~.input-label {
@@ -70,18 +72,33 @@
   <div class="code">
     <h4>语法:</h4>
     <pre>
-      :placeholder-shown：当输入框的placeholder内容显示的时候，输入框该如何展示
+
+      :placeholder-shown：当输入框的placeholder内容显示的时候，输入框该如何展示。
+
     </pre>
+
   </div>
   <br>
+  <div class="code">
+    <h4>作用:</h4>
+
+      相当于让input拥有了一个if判断，鼠标是否进入来决定是否增加这个伪类
+
+  </div>
+  <br>
+  
+  <h4>兼容性:</h4>
+  <iframe width="800" height="500" src="https://www.caniuse.com/?search=placeholder-shown" frameborder="0"></iframe>
+  
   <h4>示例1:</h4>
+  <div>这是我们项目中常用的input交互：</div><br>
+
   <div class="box">
     <div class="input-outline-x">
-      <input id="inputRef" class="input-control input-outline" placeholder="邮箱">
+      <input id="inputRef" type="text" class="input-control input-outline" placeholder="邮箱">
       <label for='inputRef' id="inputLabel" class="input-label">请输入邮箱</label>
     </div>
   </div>
-
 
   <script>
 
@@ -92,7 +109,7 @@
       var val = this.value;
       if (val) {
         inputLabel.classList.add('inputFocus');
-      }else{
+      } else {
         inputLabel.classList.remove('inputFocus');
       }
     })
