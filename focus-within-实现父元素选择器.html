@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+  <title></title>
+  <link rel="stylesheet" href="./style/common.css">
+  <style>
+    .form {
+      width: fit-content;
+      padding: 13px 10px 13px;
+      border: 1px solid #d0d0d5;
+    }
+
+    .form1 {
+      position: relative;
+      z-index: 2;
+    }
+
+    .form1:focus-within {
+      /* background-color: rgba(0, 0, 0, 0.3); */
+      outline: 2000px solid rgba(0, 0, 0, 0.8)
+    }
+
+    .form input {
+      padding: 13px 10px 13px;
+      border: 1px solid #d0d0d5;
+      border-radius: 4px;
+      background-color: transparent;
+      outline: none;
+    }
+
+    .form2 .input-label {
+      display: inline-block;
+      width: 100px;
+      text-align: right;
+    }
+
+    .password1 {
+      transition: all 0.3s;
+    }
+
+    /* 前面的兄弟元素 */
+    .password-wrap:focus-within .password1 {
+      box-shadow: 0px 0px 5px 2px #f50;
+    }
+
+    .password1:focus-within {
+      box-shadow: none !important;
+    }
+
+
+    /* 例3 */
+    .bar {
+      background-color: #e3e4e5;
+      color: #888;
+      padding-left: 40px;
+    }
+
+    .summary {
+      display: inline-block;
+      padding: 5px 28px;
+      text-indent: -15px;
+      user-select: none;
+      outline: 0;
+      position: relative;
+      z-index: 1;
+      color: #666;
+      text-decoration: none;
+    }
+
+    .summary::after {
+      content: '';
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      margin: 4px 0 0 .5ch;
+      background: url(./img/arrow-on.svg) no-repeat;
+      background-size: 100% 100%;
+      transition: transform .2s;
+    }
+
+    .box:focus-within .summary,
+    .summary:hover {
+      background-color: #fff;
+      box-shadow: inset 1px 0 #ddd, inset -1px 0 #ddd;
+    }
+
+    .box:focus-within .summary::after {
+      transform: rotate(180deg);
+    }
+
+    .options {
+      display: none;
+      position: absolute;
+      border: 1px solid #ddd;
+    }
+
+    .options a {
+      display: block;
+      text-decoration: none;
+      color: #333;
+      font-size: 14px;
+      padding: 5px 16px;
+    }
+    .options a:hover {
+     background-color: #eee;
+    }
+
+    .options a sup {
+      position: absolute;
+      color: #cd0000;
+      font-size: 12px;
+      margin-top: -.25em;
+    }
+
+    .box:focus-within .summary {
+      background-color: #fff;
+    }
+
+    .box:focus-within .options {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="code">
+    <h4>语法:</h4>
+    <pre>
+
+      :focus-within 表示当前元素或者当前元素的子元素处于focus状态时候，当前这个元素该如何如何如何。
+
+    </pre>
+
+  </div>
+  <br>
+  <div class="code">
+    <h4>作用:</h4>
+
+    让input拥有了一个if判断，内部是否有输入值。
+
+  </div>
+  <br>
+
+  <h4>示例1:</h4>
+  <div>勿扰模式：</div><br>
+
+  <div class="box">
+    <form class="form form1">
+      <label for='inputRef' class="input-label">邮箱：</label>
+      <input id="" type="text" class="input" placeholder="请输入邮箱"><br><br>
+      <label for='inputRef' class="input-label">邮箱：</label>
+      <input id="" type="text" class="input" placeholder="请输入邮箱"><br><br>
+      <label for='inputRef' class="input-label">邮箱：</label>
+      <input id="" type="text" class="input" placeholder="请输入邮箱"><br><br>
+      <label for='inputRef' class="input-label">邮箱：</label>
+      <input id="" type="text" class="input" placeholder="请输入邮箱">
+    </form>
+  </div>
+
+  <br>
+  <br>
+
+  <h4>示例2:</h4>
+  <div>选择前一个兄弟元素：</div><br>
+  <div class="box">
+    <form class="form form2">
+      <label for='inputRef' class="input-label">邮箱：</label>
+      <input id="" type="text" class="input" placeholder="请输入邮箱"><br><br>
+      <div class="password-wrap">
+        <label for='inputRef' class="input-label">密码：</label>
+        <input id="" type="password" class="input password1" placeholder="请输入密码"><br><br>
+        <label for='inputRef' class="input-label">确认密码：</label>
+        <input id="" type="password" class="input password2" placeholder="请确认密码"><br><br>
+      </div>
+      <label for='inputRef' class="input-label">邮箱：</label>
+      <input id="" type="text" class="input" placeholder="请输入邮箱"><br><br>
+    </form>
+  </div>
+
+  <br>
+  <br>
+
+  <h4>示例3:</h4>
+  <div>纯css实现的下拉选择：</div><br>
+  <div class="bar">
+    <div class="box">
+      <a href="javascript:" class="summary">我的消息</a>
+      <div class="options">
+        <a href="javascript:">我的回答<sup>12</sup></a>
+        <a href="javascript:">我的私信</a>
+        <a href="javascript:">未评价订单<sup>2</sup></a>
+        <a href="javascript:">我的关注</a>
+      </div>
+    </div>
+  </div>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <h4>兼容性:</h4>
+  <iframe width="800" height="500" src="https://www.caniuse.com/?search=focus-within" frameborder="0"></iframe>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+</body>
+
+</html>
