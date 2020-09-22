@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+	<link rel="stylesheet" href="./style/common.css">
+
+	<style>
+		.box1 {
+			width: 300px;
+			height: 300px;
+			scroll-snap-type: y mandatory;
+			overflow-x: hidden;
+			overflow-y: auto;
+			overscroll-behavior: none;
+			margin-top: 20px;
+		}
+
+		.box1 img {
+			width: 100%;
+			scroll-snap-align: center;
+
+		}
+
+		.mode-btn{
+			margin-right: 20px;
+		}
+
+		.box2 {
+			height: 50vh;
+			scroll-snap-type: y mandatory;
+			overflow: auto;
+			overscroll-behavior: none;
+		}
+
+		.box2 .item {
+			height: 100%;
+			line-height: 50vh;
+			scroll-snap-align: center;
+			text-align: center;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="code">
+		<h4>语法:</h4>
+		<pre>
+
+    scroll-snap-type: 确定是水平滚动定位，还是垂直滚动定位
+
+    none:       默认值
+    x:          捕捉水平定位点
+    y:          捕捉垂直定位点
+    both:       横轴纵轴都捕捉
+    block:      类似y
+    inline:     类似x
+    mandatory:  强制滚动到边缘，没有这个参数则可以滚到中间部分区域，到了边缘部分才会自动产生吸附效果
+		proximity:  产生吸附效果但边界模糊
+
+
+    scroll-snap-align: 捕获点是上边缘，下边缘，还是中间位置
+
+    none:       默认值，不定义位置
+    start:      上边缘（垂直滚动）或左边缘（水平滚动）
+    end:        下边缘（垂直滚动）或右边缘（水平滚动）
+    center:     居中对齐。子元素中心和滚动容器中心一致
+
+	  实际应该最有用的就这几个：
+    scroll-snap-type: x/y
+    scroll-snap-align: start/end/center
+    </pre>
+
+	</div>
+	<br>
+
+	<h4>示例1:</h4>
+	<div>基本效果：</div><br>
+
+	<button class="mode-btn">start</button><button class="mode-btn">end</button><button	class="mode-btn">center</button>
+	<div class="box1">
+		<img src="./img/1.jpg" alt="">
+		<img src="./img/2.jpg" alt="">
+		<img src="./img/3.jpg" alt="">
+		<img src="./img/4.jpg" alt="">
+	</div>
+	<br>
+	<br>
+	<br>
+
+	<h4>示例2:</h4>
+	<div>无js全屏滚动：</div><br>
+
+	<div class="box2">
+		<div class="item" style="background-color: chartreuse;">1</div>
+		<div class="item" style="background-color:chocolate;">2</div>
+		<div class="item" style="background-color: cornflowerblue;">3</div>
+		<div class="item" style="background-color:darkkhaki;">4</div>
+	</div>
+	<br>
+	<br>
+	<br>
+	<br>
+
+	<br>
+	<br>
+	<br>
+	<br>
+	<h4>兼容性:</h4>
+	<iframe width="800" height="500" src="https://www.caniuse.com/?search=overscroll-behavior" frameborder="0"></iframe>
+
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<script>
+		var btns = document.querySelectorAll('.mode-btn');
+		var imgs = document.querySelectorAll('.box1 img');
+		btns.forEach(item => {
+			item.onclick = function (e) {
+				var t = e.target;
+				var cls = t.innerText;
+				imgs.forEach(img => {
+					img.style.scrollSnapAlign = cls;
+				})
+			}
+		})
+
+
+	</script>
+</body>
+
+</html>

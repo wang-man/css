@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+  <title></title>
+  <link rel="stylesheet" href="./style/common.css">
+  <style>
+    .box1 {
+      width: 400px;
+      padding: 10px;
+      border: 1px solid;
+    }
+
+    .box1 ::-webkit-details-marker {
+      display: none;
+    }
+
+    .box1 ::-moz-list-bullet {
+      font-size: 0;
+      float: left;
+    }
+
+    summary {
+      user-select: none;
+      outline: 0;
+      position: relative;
+    }
+
+    .more {
+      display: none;
+      margin: 20px 0;
+    }
+
+    [open] .more {
+      display: block;
+    }
+
+    summary .more-btn {
+      display: block;
+      text-align: center;
+      font-size: 14px;
+      pointer-events: none;
+      padding: 4px 0;
+      background-image: linear-gradient(#e8e8e8, #4e4e4e);
+    }
+
+    [open] summary .more-btn {
+      font-size: 0;
+    }
+
+    [open] summary .more-btn::before {
+      display: block;
+      content: '收起';
+      font-size: 14px;
+    }
+
+
+    /* 例3 */
+    .bar {
+      background-color: #e3e4e5;
+      color: #888;
+      padding-left: 40px;
+    }
+    .bar summary {
+      display: inline-block;
+      padding: 5px 28px;
+      text-indent: -15px;
+      user-select: none;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* 隐藏默认三角 */
+    .bar ::-webkit-details-marker {
+      display: none;
+    }
+
+    .bar ::-moz-list-bullet {
+      font-size: 0;
+      float: left;
+    }
+
+    .bar summary::after {
+      content: '';
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      margin: 4px 0 0 .5ch;
+      background: url(./img/arrow-on.svg) no-repeat;
+      background-size: 100% 100%;
+      transition: transform .2s;
+    }
+
+    .bar [open] summary,
+    .bar summary:hover {
+      background-color: #fff;
+      box-shadow: inset 1px 0 #ddd, inset -1px 0 #ddd;
+    }
+
+    .bar [open] summary::after {
+      transform: rotate(180deg);
+    }
+
+    .bar .box {
+      position: absolute;
+      border: 1px solid #ddd;
+      background-color: #fff;
+      min-width: 100px;
+      padding: 5px 0;
+      margin-top: -1px;
+    }
+
+    .bar .box a {
+      display: block;
+      padding: 5px 10px;
+      color: inherit;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .bar .box a:hover {
+      background-color: #f0f0f0;
+    }
+
+    .bar .box sup {
+      position: absolute;
+      color: #cd0000;
+      font-size: 12px;
+      margin-top: -.25em;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="code">
+    <h4>语法:</h4>
+    <pre>
+
+      &lt;details&gt;
+          &lt;summary&gt;这是摘要，折叠时只会显示这个&lt;/summary&gt;
+          &lt;p&gt;这里是具体描述的部分，默认 被折叠。标签相对随意。例如这里使用的&lt;p&gt;标签。&lt;/p&gt;
+      &lt;/details&gt;
+    </pre>
+
+  </div>
+  <br>
+  <div class="code">
+    <h4>作用:</h4>
+    折叠与展示，只显示了&lt;summary&gt;标签内容，而默认隐藏了&lt;details&gt;内其他所有的内容。点击&lt;summary&gt;则可以实现切换；
+
+  </div>
+  <br>
+  <br>
+  <br>
+
+  <h4>示例1:</h4>
+  <div>基础实例：</div><br>
+
+  <details>
+    <summary>这是摘要</summary>
+    <p>这里具体描述，很长很长的文字</p>
+    <p>这里具体描述，很长很长的文字</p>
+    <p>这里具体描述，很长很长的文字</p>
+    <img src="./img/4.jpg" alt="">
+  </details>
+
+  <br>
+  <br>
+  <br>
+  <h4>示例2:</h4>
+  <div>查看更多：</div><br>
+  <div class="box1">
+    <p>
+      Moment.js 宣布停止开发，进入维护状态。
+
+      这是一个大而全的时间日期库，极大方便了我们在 JavaScript 中计算时间和日期，每周下载量超过 1200 万，已成功用于数百万个项目中。
+    </p>
+    <details>
+      <summary>
+        <a class="more">
+          <div>
+            <p>但是，作为一个诞生于 2011 年的元老级明星项目，以现在的眼光来看 Moment.js 并非完美无缺，官方总结了两大问题：</p>
+            <p><br><b> 1. 可变对象</b></p>
+            <p><br> Moment 对象是可变对象（mutable），简单点说，任何时间上的加减等计算都改变了其本身。这种设计让代码变的十分不可控，而且很容易带来各种隐蔽且难以调试的
+              bug。以至于我们在每步修改之前，都要先调用 <code>.clone</code> 克隆一次才能放心操作。<br></p>
+          </div>
+        </a>
+        <a class="more-btn">更多</a>
+      </summary>
+    </details>
+  </div>
+  <br>
+  <br>
+  <br>
+  <h4>示例3:</h4>
+  <div>下拉菜单：</div><br>
+  <div class="bar">
+    <details>
+      <summary>我的消息</summary>
+      <div class="box">
+        <a href>我的回答<sup>12</sup></a>
+        <a href>我的私信</a>
+        <a href>未评价订单<sup>2</sup></a>
+        <a href>我的关注</a>
+      </div>
+    </details>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <h4>兼容性:</h4>
+  <iframe width="800" height="500" src="https://www.caniuse.com/?search=details" frameborder="0"></iframe>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+</body>
+
+</html>

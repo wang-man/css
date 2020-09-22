@@ -5,12 +5,9 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 	<title></title>
-	<style>
-		* {
-			margin: 0;
-			padding: 0;
-		}
+	<link rel="stylesheet" href="./style/common.css">
 
+	<style>
 		body {
 			height: 1000px;
 		}
@@ -48,37 +45,87 @@
 			overscroll-behavior: contain;
 			-ms-scroll-chaining: contain;
 		}
+
+		.box1 {
+			width: 300px;
+			height: 400px;
+			padding: 6px;
+			overflow: auto;
+			margin-left: 20px;
+			border: 2px solid burlywood;
+			overscroll-behavior: none;
+		}
 	</style>
 </head>
 
 <body>
-	<h1></h1>
-	<h2>详见张鑫旭博客：<a href="https://www.zhangxinxu.com/wordpress/2020/01/css-overscroll-behavior/"
-			target="_blank">css-overscroll-behavior</a></h2>
+	<div class="code">
+		<h4>语法:</h4>
+		<pre>
 
-	<hr>
+			overscroll-behavior: [ contain | none | auto ]{1,2}
+			表示当前元素滚动到边缘的时候，相邻滚动区域如何如何。
 
-	<h3>
-		适用于：1。弹窗浮层不影响底部区域； 2.局部区块内容上拉刷新，但又不会滚动父级窗口，还有就是浮层的滚动时候不影响底层;</h3>
-	<h3></h3>
+			/* 单个关键字值 */
+			overscroll-behavior: auto;     /* 默认值 */
+			overscroll-behavior: contain;		/*不会对相邻的滚动区域进行滚动*/
+			overscroll-behavior: none;			/*相邻的滚动区域不会发生滚动，并且会阻止默认的滚动溢出行为*/
+			contain和none的行为在PC上一致，但在移动端会有差异.
+			/* 两个值，分别表示x方向和y方向 */
+			overscroll-behavior: auto contain;
+    </pre>
 
+	</div>
+	<br>
+
+	<h4>示例1:</h4>
+  <div>基本用法：</div><br>
+
+  <div class="box1">
+    <div>
+			<h3>Redmi K30 至尊纪念版实际体验如何？</h3>
+			<p><b>屏幕</b>：最大的亮点在于加入了120HZ，对于像答主这样没用过120HZ手机的用户，配合MIUI12流畅的动画，在不掉帧的时候感知极强，但也仅限于和其他手机对比，跟iPad Pro的120HZ比起来还差得多，一分钱一分货，这点没什么可挑剔的，不是全局120HZ，官方叫做：自适应帧率，为了省电，功过参半吧。看网上说这条的也不少，其实这里还是建议要求不高的用户平时使用都改成60hz，在玩支持高帧率游戏的时候在开120hz，掉帧版的120hz体验不如60hz，哪怕只有偶尔的一两个瞬间掉帧，而且120hz真的真的是太费电了。（对比屏幕尺寸相同，电池大小相同的redmi note8 pro得出的结论）</p>
+			<p><b>性能</b>：超大杯搭载的天玑1000+可以说是一大亮点，毕竟理论性能仅次于A13和865，强于麒麟990 5G。说到这里，我还想说说手中这台搭载着联发科helioG90T处理器的note8 pro，12nm制程，2xA76+6xA55的组合，理论性能稍次于麒麟810，但制程落后了一代半，刚发布的时候被黑的体无完肤，小米为了镇得住这颗“火龙”，散热系统相当给力，外加很少有人拿千元机进行高负荷操作，搭配4500mah的大电池，所以实际表现算是差强人意。很大程度上改观了大家对联发科“发热”，“一核有难九核围观”的现象</p>
+		</div>
+  </div>
 	<br>
 	<br>
+	<br>
+	<br>
+
+
+	
+	<h4>示例2:</h4>
+  <div>解决移动端常见底层被滚动问题：</div><br>
 
 	<button id='btn'>打开弹框</button>
 
-	<br>
-	<br>
-
 	<div id="modal" class="modal" hidden>
 		<p class="modal-content">
-			我是一个浮层弹框，我也有很长很长的内容，会滚动哦我是一个浮层弹框，我也有很长很长的内容，会滚动哦我是一个浮层弹框，我也有很长很长的内容，会滚动哦我是一个浮层弹框，我也有很长很长的内容，会滚动哦我是一个浮层弹框，我也有很长很长的内容，会滚动哦我是一个浮层弹框，我也有很长很长的内容，会滚动哦我是一个浮层弹框，我也有很长很长的内容，会滚动哦我是一个浮层弹框，我也有很长很长的内容，会滚动哦我是一个浮层弹框，我也有很长很长的内容，会滚动哦我是一个浮层弹框，我也有很长很长的内容，会滚动哦我是一个浮层弹框，我也有很长很长的内容，会滚动哦我是一个浮层弹框，我也有很长很长的内容，会滚动哦我是一个浮层弹框，我也有很长很长的内容，会滚动哦我是一个浮层弹框，我也有很长很长的内容，会滚动哦我是一个浮层弹框，我也有很长很长的内容，会滚动哦我是一个浮层弹框，我也有很长很长的内容，会滚动哦我是一个浮层弹框，我也有很长很长的内容，会滚动哦我是一个浮层弹框，我也有很长很长的内容，会滚动哦我是一个浮层弹框，我也有很长很长的内容，会滚动哦我是一个浮层弹框，我也有很长很长的内容，会滚动哦我是一个浮层弹框，我也有很长很长的内容，会滚动哦我是一个浮层弹框，我也有很长很长的内容，会滚动哦我是一个浮层弹框，我也有很长很长的内容，会滚动哦我是一个浮层弹框，我也有很长很长的内容，会滚动哦我是一个浮层弹框，我也有很长很长的内容，会滚动哦我是一个浮层弹框，我也有很长很长的内容，会滚动哦我是一个浮层弹框，我也有很长很长的内容，会滚动哦我是一个浮层弹框，我也有很长很长的内容，会滚动哦我是一个浮层弹框，我也有很长很长的内容，会滚动哦我是一个浮层弹框，我也有很长很长的内容，会滚动哦我是一个浮层弹框，我也有很长很长的内容，会滚动哦我是一个浮层弹框，我也有很长很长的内容，会滚动哦我是一个浮层弹框，我也有很长很长的内容，会滚动哦
+			<h3>Redmi K30 至尊纪念版实际体验如何？</h3>
+			<p><b>屏幕</b>：最大的亮点在于加入了120HZ，对于像答主这样没用过120HZ手机的用户，配合MIUI12流畅的动画，在不掉帧的时候感知极强，但也仅限于和其他手机对比，跟iPad Pro的120HZ比起来还差得多，一分钱一分货，这点没什么可挑剔的，不是全局120HZ，官方叫做：自适应帧率，为了省电，功过参半吧。看网上说这条的也不少，其实这里还是建议要求不高的用户平时使用都改成60hz，在玩支持高帧率游戏的时候在开120hz，掉帧版的120hz体验不如60hz，哪怕只有偶尔的一两个瞬间掉帧，而且120hz真的真的是太费电了。（对比屏幕尺寸相同，电池大小相同的redmi note8 pro得出的结论）</p>
+			<p><b>性能</b>：超大杯搭载的天玑1000+可以说是一大亮点，毕竟理论性能仅次于A13和865，强于麒麟990 5G。说到这里，我还想说说手中这台搭载着联发科helioG90T处理器的note8 pro，12nm制程，2xA76+6xA55的组合，理论性能稍次于麒麟810，但制程落后了一代半，刚发布的时候被黑的体无完肤，小米为了镇得住这颗“火龙”，散热系统相当给力，外加很少有人拿千元机进行高负荷操作，搭配4500mah的大电池，所以实际表现算是差强人意。很大程度上改观了大家对联发科“发热”，“一核有难九核围观”的现象</p>
 		</p>
+
 	</div>
 	<div class="mask" id="mask" hidden>
 		<div class="mask-content"></div>
 	</div>
 
+
+	<br>
+  <br>
+  <br>
+  <br>
+  <h4>兼容性:</h4>
+  <iframe width="800" height="500" src="https://www.caniuse.com/?search=overscroll-behavior" frameborder="0"></iframe>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
 	<script>
 		var btn = document.querySelector('#btn');
 		var modal = document.querySelector('#modal');
@@ -86,6 +133,10 @@
 		btn.onclick = function () {
 			modal.style.display = 'block';
 			mask.style.display = 'block';
+		}
+		mask.onclick = function () {
+			modal.style.display = 'none';
+			mask.style.display = 'none';
 		}
 	</script>
 </body>
