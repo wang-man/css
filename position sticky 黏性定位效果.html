@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+	<link rel="stylesheet" href="./style/common.css">
+	<style>
+		.box1 {
+			width: 375px;
+			height: 480px;
+			border: 3px solid #ddd;
+			overflow-y: scroll;
+			padding: 10px;
+			overscroll-behavior: contain;
+			padding-top: 0;
+		}
+
+		.box1 article {
+			line-height: 2;
+		}
+
+		.box1 nav {
+			display: flex;
+			text-align: center;
+			position: sticky;
+			top: 0;
+			/* 定位位置 */
+			background-color: #fff;
+		}
+
+		.box1 nav h3 {
+			flex: 1;
+			padding: 10px 0;
+			margin-right: 2px;
+			margin-top: 0;
+			margin-bottom: 0;
+			background-color: #333;
+			color: #fff;
+		}
+
+		.box1 nav h3:last-child {
+			margin-right: 0;
+		}
+
+
+		.box2 {
+			width: 375px;
+			height: 480px;
+			border: 3px solid #ddd;
+			overflow-y: scroll;
+			padding: 10px;
+			overscroll-behavior: contain;
+			padding-top: 0;
+		}
+
+		.box2 article {
+			padding-bottom: 2em;
+		}
+
+		.box2 .title {
+			margin: 2em 0 0;
+			background-color: #333;
+			color: #fff;
+			padding: 10px;
+			position: sticky;
+			top: 0;
+			z-index: 1;
+		}
+
+		.box2 footer {
+			background-color: #cd0000;
+			color: #fff;
+			padding: 10px;
+			position: sticky;
+			bottom: 30vh;
+			z-index: -1;
+		}
+		.box2 section:last-child footer {
+			bottom: 1vh;
+		}
+
+		.box2 content {
+			display: block;
+			background-color: #ffffe0;
+			position: relative;
+			padding: 1px 10px;
+		}
+	</style>
+</head>
+
+<body id="header">
+	<div class="code">
+
+		<h4>语法:</h4>
+		<pre>
+
+      position:sticky
+
+      可以看作是position:relative和position:fixed的结合体——当元素在屏幕内，表现为relative，当要滚出显示器屏幕的时候，表现为fixed。
+    </pre>
+	</div>
+	<br>
+	<br>
+	<br>
+	<h4>示例1:</h4>
+	<div>无js吸顶效果：</div><br>
+
+	<div class="box1">
+		<h2>这是标题</h2>
+		<nav>
+			<h3>导航A</h3>
+			<h3>导航B</h3>
+			<h3>导航C</h3>
+		</nav>
+		<article>
+			<p>
+				Javascript是近年来很好受瞩目的一门编程语言，它既支持面向对象编程，也支持函数式编程。本书专门介绍函数式编程的特性。全书共9章，分别介绍了函数式编程、一等函数与Applicative编程、变量的作用域和闭包、高阶函数、由函数构建函数、递归、纯度和不变性以及更改政策、基于流的编程、无类编程。除此之外，附录中还介绍了更多函数式。
+			</p>
+			<p>
+				是近年来很好受瞩目的一门编程语言，它既支持面向对象编程，也支持函数式编程。本书专门介绍函数式编程的特性。全书共9章，分别介绍了函数式编程、一等函数与Applicative编程、变量的作用域和闭包、高阶函数、由函数构建函数、递归、纯度和不变性以及更改政策、基于流的编程、无类编程。除此之外，附录中还介绍了更多函数式。
+				本书内容全面，示例丰富，适合想要了解函数式编程的程序员和学习的函数式程序员阅读。
+			</p>
+		</article>
+
+	</div>
+	<sub>position:sticky要想生效，top属性或则left属性（看滚动方向）是必须要有明确的计算值的，否则fixed的表现不会出现。</sub>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+
+	<div class="box"></div>
+	<h4>示例2:</h4>
+	<div>更酷炫的吸顶效果：</div><br>
+	<div class="box2">
+		<article>
+			<section>
+				<h4 class="title">《JavaScript高级程序设计》</h4>
+				<content>
+					<p>
+						本书是JavaScript 超级畅销书的最新版。ECMAScript 5 和HTML5 在标准之争中双双胜出，使大量专有实现和客户端扩展正式进入规范，同时也为JavaScript
+						增添了很多适应未来发展的新特性。本书这一版除增加5 章全新内容外，其他章节也有较大幅度的增补和修订，新内容篇幅约占三分之一。全书从JavaScript
+						语言实现的各个组成部分——语言核心、DOM、BOM、事件模型讲起，深入浅出地探讨了面向对象编程、Ajax 与Comet 服务器端通信，HTML5 表单、媒体、Canvas（包括WebGL）及Web
+						Workers、地理定位、跨文档传递消息、客户端存储（包括IndexedDB）等新API，还介绍了离线应用和与维护、性能、部署相关的最佳开发实践。本书附录展望了未来的API 和ECMAScript Harmony
+						规范。
+					</p>
+					<p><img src="https://img3.doubanio.com/view/subject/l/public/s8958650.jpg" width="100%"></p>
+				</content>
+				<footer>读者评论：啰嗦部分占三分之一 有关兼容ie部分占三分之一 剩下的就是这本书精华了</footer>
+			</section>
+			<section>
+				<h4 class="title">《JavaScript语言精粹》</h4>
+				<content>
+					<p>JavaScript 曾是“世界上最被误解的语言”，因为它担负太多的特性，包括糟糕的交互和失败的设计，但随着Ajax
+						的到来，JavaScript“从最受误解的编程语言演变为最流行的语言”，这除了幸运之外，也证明了它其实是一门优秀的语言。Douglas Crockford 在本书中剥开了JavaScript
+						沾污的外衣，抽离出一个具有更好可靠性、可读性和可维护性的JavaScript 子集，让你看到一门优雅的、轻量级的和非常富有表现力的语言。作者从语法、对象、函数、继承、数组、正则表达式、方法、样式和优美的特性这9
+						个方面来呈现这门语言真正的精华部分，通过它们完全可以构建出优雅高效的代码。作者还通过附录列出了这门语言的毒瘤和糟粕部分，且告诉你如何避免它们。最后还介绍了JSLint，通过它的检验，能有效地保障我们的代码品质。
+					</p>
+
+					<p><img src="https://img1.doubanio.com/view/subject/l/public/s22708088.jpg" width="100%"></p>
+				</content>
+				<footer>读者评论：花了一个周末的时间，先从前到后略读了一遍，之后又从最后一章详细读到第一章，嘿嘿，倒着读竟然感觉比正着读还顺畅。</footer>
+			</section>
+			<section>
+				<h4 class="title">《你不知道的JavaScript》</h4>
+				<content>
+					<p>
+						“你不知道的JavaScript”系列就是要让不求甚解的JavaScript开发者迎难而上，深入语言内部，弄清楚JavaScript每一个零部件的用途。本书介绍了该系列的两个主题：“作用域和闭包”以及“this和对象原型”。掌握了这些知识之后，无论什么技术、框架和流行词语，你都能轻松理解。
+					</p>
+					<p><img src="https://img3.doubanio.com/view/subject/l/public/s28033372.jpg" width="100%"></p>
+				</content>
+				<footer>读者评论：译者一定是个宅...</footer>
+			</section>
+		</article>
+	</div>
+	<br>
+	<br>
+	<br>
+	<br>
+	<h4>注意点: </h4>
+	<ul>
+		<li>sticky元素定位位置是相对于滚动容器，但不会超过父元素边界，如果</li>
+		<li>滚动容器不必设置任何定位</li>
+		<li>sticky元素位置不会超过父元素边界，因此最后会被推着走</li>
+		<li>如果有多个sticky元素，就需要有正确的html结构</li>
+		<li><img src="./img/html.png" alt=""></li>
+	</ul>
+	<br>
+	<br>
+	<br>
+	<br>
+	<h4>兼容性: </h4>
+	<iframe width="800" height="500" src="https://www.caniuse.com/?search=sticky" frameborder="0"></iframe>
+	<br>
+	<br>
+	<br>
+	<br>
+</body>
+
+</html>

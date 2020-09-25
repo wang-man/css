@@ -5,6 +5,8 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 	<title></title>
+	<link rel="stylesheet" href="./style/common.css">
+
 	<style>
 		.bar {
 			width: 500px;
@@ -16,10 +18,10 @@
 		.bar:before {
 			height: 100%;
 			line-height: 40px;
-			counter-reset: progress var(--percent);		/* 获取变量值，创建一个数字 */
+			counter-reset: progress var(--percent);		/* 使用变量，创建一个数字 */
 			content: counter(progress)'%\2002';				/* 计数器只能跟content属性在一起的时候才有作用 */
 			display: block;
-			width: calc(500px * var(--percent) / 100);
+			width: calc(500px * var(--percent) / 100); /*使用变量*/
 			color: #fff;
 			background-color: #2486ff;
 			text-align: right;
@@ -34,15 +36,39 @@
 		.box2{
 			color: var(--color);
 		}
+
+		.box1 button{
+			padding: calc(var(--btnSize) * 1px);
+		}
 	</style>
 </head>
 
 <body>
-	<h1></h1>
-	<h2>css变量的概念: </h2>
-	变量声明： --变量名: 变量值 <br>
-	变量使用： var(--变量名) <br>
+	<div class="code">
+		<h4>语法:</h4>
+		<pre>
 
+      变量定义：--*，如style="--percent: 30"  
+      变量使用：var(--*)，如width: calc(var(--percent) * 1px);
+    </pre>
+	</div>
+
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+
+	<h4>示例1:</h4>
+	<div>基本效果：</div><br>
+
+	<div class="box1">
+		<button style="--btnSize: 3">我是小按钮</button>
+		<button style="--btnSize: 8">我是大按钮</button>
+	</div>
+	<br>
+	<br>
 	<hr>
 	<br>
 	<br>
