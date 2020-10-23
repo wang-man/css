@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+	<link rel="stylesheet" href="./style/common.css">
+	<!-- <link rel="stylesheet" href="http://at.alicdn.com/t/font_2096440_cr04x0ngueh.css"> -->
+	<style>
+		.box1 a {
+			position: relative;
+			font-size: 30px;
+			color: #f50;
+		}
+		.box1 a:after {
+			font-size: 12px;
+			position: absolute;
+			top: -12px;
+			left: 0;
+		}
+
+		.box1 a:hover::after {
+			content: attr(data-title);
+		}
+
+		.box2 span{
+			--brgcolor: attr(brgcolor);
+			background-color: var(--brgcolor);
+		}
+	</style>
+</head>
+
+<body>
+	<div class="code">
+		<h4>语法:</h4>
+		<pre>
+
+      css的attr()函数，可以获得在HTML标签中的自定义属性值。
+    </pre>
+
+	</div>
+	<br>
+
+	<h4>示例1:</h4>
+	<div>基本效果：</div><br>
+
+	<div class="box1">
+		<a data-title='提示：点我'>按钮</a>
+	</div>
+	<br>
+	<br>
+
+	<br>
+	<br>
+
+	<h4>示例2:</h4>
+	<div>结合变量使用：</div><br>
+
+	<div class="box2">
+		<span id="exmple" brgcolor='#f50'>测试文字</span>
+	</div>
+	<br>
+	<br>
+
+	<br>
+	<br>
+
+	<br>
+	<br>
+	<br>
+	<br>
+	<h4>兼容性:</h4>
+	<iframe width="800" height="500" src="https://www.caniuse.com/?search=currentColor" frameborder="0"></iframe>
+
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+
+</body>
+
+</html>

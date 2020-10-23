@@ -9,7 +9,7 @@
 	<!-- <link rel="stylesheet" href="http://at.alicdn.com/t/font_2096440_cr04x0ngueh.css"> -->
 	<style>
 		.box1 {
-			color:rgba(255, 0, 0, 0.247);
+			color:#8090f9;
 		}
 
 		.box1 img {
@@ -28,6 +28,7 @@
 
 		}
 
+    /* 如果是以往，要实现这个效果，当有多个这样的图标，用scss的话就得创建多个变量，给文字赋值一次，还要给svg赋值一次 */
 		.box2 a svg {
 			width: 20px;
 			fill: currentColor
@@ -53,12 +54,12 @@
 		<h4>语法:</h4>
 		<pre>
 
-      currentColor 顾名思意就是“当前颜色”，准确讲应该是“当前容器的文字颜色”，例如：
+      currentColor 顾名思义就是“当前颜色”，准确讲应该是“当前容器的文字颜色”。
+			
+      比如，我要让边框的颜色同文字的颜色一致，就可以这样写：.xxx { border: 1px solid currentColor; }
 
-      .xxx { border: 1px solid currentColor; }
-
-      实际上它起到了变量的作用。相比scss中需要创建一个变量，然后分别将这个变量赋给不同地方来说，
-      currentColor更为简便，不需要创建变量，不用处处复制。
+      实际上它起到了变量的作用。相比scss中使用变量，scss先需要创建一个变量为其赋值一个颜色，然后再不同的地方使用它，
+      而currentColor更为简便，它本身就是变量，可以代表任何颜色。最关键是css中这个变量具有继承的能力。
     </pre>
 
 	</div>
@@ -84,7 +85,7 @@
 	<div class="box2">
 
 		<a href="javascript:;">
-			<svg viewBox="-79.5 -79.5 159 159">
+      <svg viewBox="-79.5 -79.5 159 159">
 				<path
 					d="M79.5,32.802l-93.538-93.538l-46.699,46.699L32.802,79.5L79.5,32.802z M-79.5-32.802L-32.802-79.5H-79.5 V-32.802z"
 					transform="matrix(1 0 0 -1 0 0)"></path>
