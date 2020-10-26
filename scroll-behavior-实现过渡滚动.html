@@ -73,7 +73,7 @@
 
 <body id="header">
   <div class="code">
-
+    以往我们要给页面增加一个平滑滚动效果，例如回到顶部，要么用a标签生硬的跳转回顶部，要么只有借助js写上很多行来实现。其实现在大可不必那么麻烦，css就自带这样的天生用来让滚动变得丝滑的属性：scroll-behavior[bɪ'heɪvjə(r)]
     <h4>语法:</h4>
     <pre>
 
@@ -86,7 +86,30 @@
   <br>
   <br>
   <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+
+  <div class="box"></div>
   <h4>示例1:</h4>
+  <div>回到顶部：</div><br>
+
+  <a href='#header' class='top-btn'><img
+      src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2592293273,4092150763&fm=26&gp=0.jpg" alt=""></a>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <h4>示例2:</h4>
   <div>无js轮播：</div><br>
 
   <div class="swiper">
@@ -101,8 +124,7 @@
       </li>
       <li>
         <input id="three" readonly>
-        <img src="https://img.zcool.cn/community/01529459aa26f6a8012028a91f76c5.jpg@1280w_1l_0o_100sh.jpg"
-          alt="">
+        <img src="https://img.zcool.cn/community/01529459aa26f6a8012028a91f76c5.jpg@1280w_1l_0o_100sh.jpg" alt="">
       </li>
     </ul>
     <div class="dot">
@@ -121,21 +143,22 @@
   <br>
   <br>
 
-  <div class="box"></div>
-  <h4>示例2:</h4>
-  <div>回到顶部：</div><br>
+  <br>
+  <div>像这样的体验增强属性，不管用不用的上，浏览器兼容性如何，其实直接在代码里加上即可，不会有什么影响，浏览器不兼容也没有影响，举个例子<br>
+  在PC浏览器中，网页默认滚动是在html标签上的，移动端大多数在
 
-  <a href='#header' class='top-btn'><img
-      src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2592293273,4092150763&fm=26&gp=0.jpg" alt=""></a>
+    body标签上，于是，我加上这么一句：<br>
 
+    html, body { scroll-behavior:smooth; }</div>
   <br>
   <br>
   <br>
   <br>
-  <div></div>
+  <br>
+  <br>
+  <h4>兼容性:</h4>
 
-	<h4>兼容性: 窃以为，因为是增强交互体验，所以可以毫不犹豫的使用起来，而不必管它的兼容性如何。</h4>
-	<iframe width="800" height="500" src="https://www.caniuse.com/css-scroll-behavior" frameborder="0"></iframe>
+  <iframe width="800" height="500" src="https://www.caniuse.com/css-scroll-behavior" frameborder="0"></iframe>
   <br>
   <br>
   <br>

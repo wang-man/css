@@ -60,19 +60,23 @@
 
 <body>
 	<div class="code">
+		在网页中，滚动嵌套是很常见的。在默认情况下，某个容器滚动条滚到到底部边缘然后再继续滚动的时候，外层滚动条会继续跟着滚动。<br>
+		但是，有时候我们希望里面的滚动条滚动到底部之后就停住，不带动外层容器，这样可以方便实现其他一些交互，例如滚动到底部继续Loading加载。
 		<h4>语法:</h4>
 		<pre>
 
-			overscroll-behavior: [ contain | none | auto ]{1,2}
-			表示当前元素滚动到边缘的时候，相邻滚动区域如何如何。
+        overscroll-behavior: [ contain | none | auto ]{1,2}
+        表示当前元素滚动到边缘的时候，相邻滚动区域如何如何。
 
-			/* 单个关键字值 */
-			overscroll-behavior: auto;     /* 默认值 */
-			overscroll-behavior: contain;		/*不会对相邻的滚动区域进行滚动*/
-			overscroll-behavior: none;			/*相邻的滚动区域不会发生滚动，并且会阻止默认的滚动溢出行为*/
-			contain和none的行为在PC上一致，但在移动端会有差异.
-			/* 两个值，分别表示x方向和y方向 */
-			overscroll-behavior: auto contain;
+        /* 单个关键字值 */
+        overscroll-behavior: auto;      /* 默认值 */
+        overscroll-behavior: contain;	  /*不会对相邻的滚动区域进行滚动*/
+        overscroll-behavior: none;      /*相邻的滚动区域不会发生滚动，并且会阻止默认的滚动溢出行为*/
+				
+        contain和none的行为在PC上一致，但在移动端会有差异.
+				
+        /* 两个值，分别表示x方向和y方向： */
+        overscroll-behavior: auto contain;
     </pre>
 
 	</div>
@@ -115,6 +119,13 @@
 
 	<br>
   <br>
+  <br>
+	<br>
+  <br>
+  <br>
+	同 scroll-behavior一样，
+	由于本身属于体验增强的属性，因此可以在实际项目上大胆使用，浏览器支持自然体验更上一层楼，浏览器如果不支持也就是保持现在这个样子而已。
+	
   <br>
   <br>
   <h4>兼容性:</h4>

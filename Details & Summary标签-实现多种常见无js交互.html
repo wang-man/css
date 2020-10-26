@@ -148,8 +148,19 @@
   </div>
   <br>
   <div class="code">
-    <h4>作用:</h4>
-    折叠与展示，只显示了&lt;summary&gt;标签内容，而默认隐藏了&lt;details&gt;内其他所有的内容。点击&lt;summary&gt;则可以实现切换；
+    折叠与展示，只显示了&lt;summary&gt;标签内容，而默认隐藏了&lt;details&gt;内其他所有的内容。点击&lt;summary&gt;则可以实现切换；<br>
+    活脱脱一个天然的展开收起效果。<br>
+    通过在details标签上添加布尔类型的open属性，可以让我们的详情信息默认就是展开状态：
+    <pre>
+
+      &lt;details open&gt;
+          &lt;summary&gt;这是摘要，折叠时只会显示这个&lt;/summary&gt;
+          &lt;p&gt;这里是具体描述的部分，默认 被折叠。标签相对随意。例如这里使用的&lt;p&gt;标签。&lt;/p&gt;
+      &lt;/details&gt;
+    </pre>
+    如果我们使用JS脚本手动移除这个open属性，即使没有点击行为的发生，我们内容也会收起。
+  <!-- document.querySelector('#details_first').setAttribute('open', true) -->
+  <!-- document.querySelector('#details_first').removeAttribute('open') -->
 
   </div>
   <br>
@@ -159,14 +170,13 @@
   <h4>示例1:</h4>
   <div>基础实例：</div><br>
 
-  <details>
+  <details id="details_first">
     <summary>这是摘要</summary>
     <p>这里具体描述，很长很长的文字</p>
     <p>这里具体描述，很长很长的文字</p>
     <p>这里具体描述，很长很长的文字</p>
     <img src="./img/4.jpg" alt="">
   </details>
-
   <br>
   <br>
   <br>
