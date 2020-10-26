@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+	<link rel="stylesheet" href="./style/common.css">
+
+	<style>
+		* {
+			box-sizing: content-box;
+		}
+
+		.box1 {
+			width: 400px;
+			scroll-snap-type: y mandatory;
+			overflow-x: hidden;
+			overflow-y: auto;
+			overscroll-behavior: none;
+			/* 滚动不影响body */
+			margin-top: 20px;
+		}
+
+
+		.box1 .shape1 {
+			float: left;
+			width: 100px;
+			height: 100px;
+			margin: 10px;
+			background-color: currentColor;
+			shape-outside: circle();
+			clip-path: circle();
+			color: #cd0000;
+		}
+
+		.box1 .shape2 {
+			float: left;
+			width: 60px;
+			height: 60px;
+			padding: 10px;
+			margin: 10px;
+			border: 10px solid;
+			border-radius: 50%;
+			background-color: currentColor;
+			background-clip: content-box;
+			color: #cd0000;
+		}
+
+		.box1 .shape3 {
+			float: left;
+			width: 100px;
+			height: 100px;
+			margin: 10px;
+			background-color: currentColor;
+			shape-outside: circle();
+			clip-path: circle();
+			color: #cd0000;
+		}
+
+
+		.cols {
+			display: table;
+			width: 100%;
+		}
+
+		.col {
+			display: table-cell;
+		}
+
+
+		.demo {
+			margin-left: 100px;
+			position: relative;
+			max-width: 680px;
+		}
+
+		.box2 {
+			max-width: 680px;
+			height: 400px;
+			border: solid #000;
+			margin: auto;
+			overflow: auto;
+		}
+
+		.shape100 {
+			float: left;
+			width: 30px;
+			height: 340px;
+			-webkit-shape-outside: polygon(0 0, 0 150px, 16px 154px, 30px 166px, 30px 314px, 16px 326px, 0 330px, 0 0);
+			shape-outside: polygon(0 0, 0 150px, 16px 154px, 30px 166px, 30px 314px, 16px 326px, 0 330px, 0 0);
+			transition: -webkit-shape-outside .15s;
+			transition: shape-outside .15s;
+		}
+
+
+		.content ul {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
+
+		.content li {
+			border-bottom: 1px solid #eee;
+			padding: .5em;
+		}
+
+		.liuhai {
+			width: 24px;
+			height: 180px;
+			background: url(./img/liu.png) no-repeat left center;
+			position: absolute;
+			margin-top: 130px;
+			left: 0;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="code">
+		<div>shape-outside是不规则形状环绕布局的核心，用以实现文字环绕图片的布局效果。支持的属性值分为如下四大类</div>
+		<h4>语法:</h4>
+		<pre>
+    shape-outside
+    none:        默认值
+    shape-box:  （图形盒子）要来指定文字环绕的时候是依照哪个盒子的边缘来计算的，分别是margin-box，border-box，padding-box和content-box
+    basic-shape: 基本形状函数，circle() – 圆，ellipse() – 椭圆，inset() – 内矩形（包括圆角矩形），polygon() – 多边形
+    image:       图像类，包括URL链接图片，渐变图像等。
+
+
+    /* 关键字值 */
+    shape-outside: none;
+    shape-outside: margin-box;
+    shape-outside: content-box;
+    shape-outside: border-box;
+    shape-outside: padding-box;
+
+    /* 函数值 */
+    shape-outside: circle();
+    shape-outside: ellipse();
+    shape-outside: inset(10px 10px 10px 10px);
+    shape-outside: polygon(10px 10px, 20px 20px, 30px 30px);
+
+    /* url值 */
+    shape-outside: url(image.png);
+
+    /* 渐变值 */
+    shape-outside: linear-gradient(45deg, rgba(255, 255, 255, 0) 150px, red 150px);
+    </pre>
+
+	</div>
+	<br>
+
+	<h4>示例1:</h4>
+	<div>基本效果：</div><br>
+	<div>文字圆形环绕<br>
+	</div><br>
+	<div class="box1">
+		<span class="shape1" style="shape-outside: circle(at 50% 50%); clip-path: circle(at 50% 50%);"></span>
+		<p>在CSS Shapes布局问世之前，文字像杂志一样的任意形状的排版几乎是不可能的，一直都是用网格、盒子和直线构造。</p>
+		<p>CSS Shapes允许我们定义文本环绕的几何形状。这些形状可以是圆、椭圆、简单或复杂的多边形，甚至是任意的图像和多彩的渐变。</p>
+	</div>
+	<br>
+	<br>
+	<br>
+
+	<h4>示例2:</h4>
+	<div>根据盒子模型选择边缘环绕<br>
+		<div class="box1">
+			<span class="shape2" style="shape-outside: margin-box;"></span>
+			<p>在CSS Shapes布局问世之前，文字像杂志一样的任意形状的排版几乎是不可能的，一直都是用网格、盒子和直线构造。</p>
+			<p>CSS Shapes允许我们定义文本环绕的几何形状。这些形状可以是圆、椭圆、简单或复杂的多边形，甚至是任意的图像和多彩的渐变。</p>
+
+			<h4>选择shape-outside属性值</h4>
+			<p class="list"><input type="radio" id="soNone" value="none" name="shape1" checked=""><label class="ui-radio"
+					for="soNone"></label><label for="soNone">none</label></p>
+			<p class="list"><input type="radio" id="soMargin" value="margin-box" name="shape1"><label class="ui-radio"
+					for="soMargin"></label><label for="soMargin">margin-box</label></p>
+			<p class="list"><input type="radio" id="soBorder" value="border-box" name="shape1"><label class="ui-radio"
+					for="soBorder"></label><label for="soBorder">border-box</label></p>
+			<p class="list"><input type="radio" id="soPadding" value="padding-box" name="shape1"><label class="ui-radio"
+					for="soPadding"></label><label for="soPadding">padding-box</label></p>
+			<p class="list"><input type="radio" id="soContent" value="content-box" name="shape1"><label class="ui-radio"
+					for="soContent"></label><label for="soContent">content-box</label></p>
+		</div>
+		<br>
+		<br>
+
+
+		<h4>示例3:</h4>
+		<div>根据基本形状函数选择环绕<br>
+			<div class="box1">
+				<span class="shape3" style="shape-outside: margin-box;"></span>
+				<p>在CSS Shapes布局问世之前，文字像杂志一样的任意形状的排版几乎是不可能的，一直都是用网格、盒子和直线构造。</p>
+				<p>CSS Shapes允许我们定义文本环绕的几何形状。这些形状可以是圆、椭圆、简单或复杂的多边形，甚至是任意的图像和多彩的渐变。</p>
+
+				<h4>选择shape-outside属性值</h4>
+
+			</div>
+			<br>
+			<div class="cols">
+				<div class="col">
+					<p class="list"><input type="radio" id="shape1" value="circle()" name="shape2" checked=""><label
+							class="ui-radio" for="shape1"></label><label for="shape1">circle()</label></p>
+					<p class="list"><input type="radio" id="shape2" value="circle(60%)" name="shape2"><label class="ui-radio"
+							for="shape2"></label><label for="shape2">circle(60%)</label></p>
+					<p class="list"><input type="radio" id="shape3" value="circle(at 60% 50%)" name="shape2"><label
+							class="ui-radio" for="shape3"></label><label for="shape3">circle(at 60% 50%)</label></p>
+					<p class="list"><input type="radio" id="shape4" value="circle(50% at 0 50%)" name="shape2"><label
+							class="ui-radio" for="shape4"></label><label for="shape4">circle(50% at 0 50%)</label></p>
+					<p class="list"><input type="radio" id="shape5" value="circle(50px at 80px 80px)" name="shape2"><label
+							class="ui-radio" for="shape5"></label><label for="shape5">circle(50px at 80px 80px)</label></p>
+				</div>
+				<div class="col">
+					<!-- 椭圆 -->
+					<p class="list"><input type="radio" id="ellipse1" value="ellipse()" name="shape2"><label class="ui-radio"
+							for="ellipse1"></label><label for="ellipse1">ellipse()</label></p>
+					<p class="list"><input type="radio" id="ellipse2" value="ellipse(50px 75px)" name="shape2"><label
+							class="ui-radio" for="ellipse2"></label><label for="ellipse2">ellipse(50px 75px)</label></p>
+					<p class="list"><input type="radio" id="ellipse3" value="ellipse(at 50% 50%)" name="shape2"><label
+							class="ui-radio" for="ellipse3"></label><label for="ellipse3">ellipse(at 50% 50%)</label></p>
+					<p class="list"><input type="radio" id="ellipse4" value="ellipse(50px 75px at 50% 50%)" name="shape2"><label
+							class="ui-radio" for="ellipse4"></label><label for="ellipse4">ellipse(50px 75px at 50% 50%)</label></p>
+					<p class="list"><input type="radio" id="ellipse5" value="ellipse(farthest-side closest-side at 25% 25%)"
+							name="shape2"><label class="ui-radio" for="ellipse5"></label><label for="ellipse5">ellipse(farthest-side
+							closest-side at 25% 25%)</label></p>
+					<p class="list"><input type="radio" id="ellipse6" value="ellipse(closest-side farthest-side at 25% 25%)"
+							name="shape2"><label class="ui-radio" for="ellipse6"></label><label for="ellipse6">ellipse(closest-side
+							farthest-side at 25% 25%)</label></p>
+				</div>
+				<div class="col">
+					<!-- 内嵌矩形 -->
+					<p class="list"><input type="radio" id="inset1" value="inset(10px)" name="shape2"><label class="ui-radio"
+							for="inset1"></label><label for="inset1">inset(10px)</label></p>
+					<p class="list"><input type="radio" id="inset2" value="inset(10px 20px)" name="shape2"><label class="ui-radio"
+							for="inset2"></label><label for="inset2">inset(10px 20px)</label></p>
+					<p class="list"><input type="radio" id="inset3" value="inset(10px 20px 30px)" name="shape2"><label
+							class="ui-radio" for="inset3"></label><label for="inset3">inset(10px 20px 30px)</label></p>
+					<p class="list"><input type="radio" id="inset4" value="inset(10px 20px 30px 40px)" name="shape2"><label
+							class="ui-radio" for="inset4"></label><label for="inset4">inset(10px 20px 30px 40px)</label></p>
+					<p class="list"><input type="radio" id="inset5" value="inset(10px 20px 30px 40px round 10px)"
+							name="shape2"><label class="ui-radio" for="inset5"></label><label for="inset5">inset(10px 20px 30px 40px
+							round 10px)</label></p>
+				</div>
+				<div class="col">
+					<!-- 内嵌矩形 -->
+					<p class="list"><input type="radio" id="polygon1" value="polygon(0 0, 0 100px, 100px 200px)"
+							name="shape2"><label class="ui-radio" for="polygon1"></label><label for="polygon1">polygon(0 0, 0 100px,
+							100px 200px)</label></p>
+					<p class="list"><input type="radio" id="polygon2" value="polygon(0 0, 100px 0, 0 50px, 100px 100px, 0 100px)"
+							name="shape2"><label class="ui-radio" for="polygon2"></label><label for="polygon2">polygon(0 0, 100px 0, 0
+							50px, <br>100px 100px, 0
+							100px)</label></p>
+				</div>
+			</div>
+			<br>
+
+			<br>
+			<br>
+			<br>
+
+			<h4>示例4:</h4>
+			<div>Shapes实现元素滚动自动环绕iPhone X头部刘海效果<br></div>
+
+			<div class="demo">
+				<i class="liuhai"></i>
+
+				<div id="box2" class="box2">
+					<i id="shape100" class="shape100"
+						style="height: 1044px; shape-outside: polygon(0px 0px, 0px 714px, 16px 718px, 30px 730px, 30px 878px, 16px 890px, 0px 894px, 0px 0px);"></i>
+					<div class="content">
+						<ul>
+							<li>为了防止看花眼</li>
+							<li>我就手动敲下面的文字</li>
+							<li>原本我偷懒</li>
+							<li>直接就是列表1，列表2</li>
+							<li>后来测试发现不行</li>
+							<li>内容太接近</li>
+							<li>滚动时候</li>
+							<li>无法准确感受到靠近效果</li>
+							<li>这样是不行的</li>
+							<li>做东西就要精益求精</li>
+							<li>demo页面也应如此</li>
+							<li>然后这里的刘海形状只是近似</li>
+							<li>两个圆角要模拟</li>
+							<li>需要更细致的shape-outside设置</li>
+							<li>这里仅仅使用两个转角点表示</li>
+							<li>而且为了和后面的内容有间隙</li>
+							<li>shape区域右侧</li>
+							<li>刻意扩大了大约5像素</li>
+							<li>现在看到的刘海</li>
+							<li>是覆盖上面的一个图</li>
+							<li>实际生效的是后面浮动的shape</li>
+							<li>在iOS 10.2之前还需要webkit</li>
+							<li>私有前缀</li>
+							<li>因此，实际代码还需要webkit</li>
+							<li>Chrome可以不需要</li>
+							<li>然后此功能需要JS配合</li>
+							<li>只能对内联信息进行跟随控制</li>
+							<li>理论上还可以使用CSS region实现</li>
+							<li>但没有这个方法容易理解</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<br>
+			<h4>兼容性:</h4>
+			<iframe width="800" height="500" src="https://www.caniuse.com/shape-outside" frameborder="0"></iframe>
+
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<script>
+				[].slice.call(document.querySelectorAll('input[name="shape1"]')).forEach(function (radio) {
+					radio.addEventListener('click', function () {
+						document.querySelector('.shape2').style.shapeOutside = this.value;
+					});
+				});
+
+
+				[].slice.call(document.querySelectorAll('input[name="shape2"]')).forEach(function (radio) {
+					radio.addEventListener('click', function () {
+						document.querySelector('.shape3').style.shapeOutside = this.value;
+						document.querySelector('.shape3').style.clipPath = this.value;
+					});
+				});
+
+
+
+				var eleShape = document.getElementById('shape100');
+				var eleBox = document.getElementById('box2');
+				eleShape.style.height = eleBox.scrollHeight + 'px';
+
+				var funShape = function () {
+					var scrollTop = eleBox.scrollTop;
+					// 滚动偏移应用在shape-outside上
+					var shapeOutside = 'polygon(0 0, 0 ' + (130 + scrollTop) + 'px, 16px ' + (134 + scrollTop) + 'px, 30px ' + (146 + scrollTop) + 'px, 30px ' + (294 + scrollTop) + 'px, 16px ' + (306 + scrollTop) + 'px, 0 ' + (310 + scrollTop) + 'px, 0 0)';
+					eleShape.style.webkitShapeOutside = shapeOutside;
+					eleShape.style.shapeOutside = shapeOutside;
+				};
+				// 滚动时候实时改变shape形状
+				eleBox.addEventListener('scroll', funShape);
+				funShape();
+
+			</script>
+</body>
+
+</html>

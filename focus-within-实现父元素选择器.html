@@ -20,7 +20,7 @@
 
     .form1:focus-within {
       /* background-color: rgba(0, 0, 0, 0.3); */
-      outline: 2000px solid rgba(0, 0, 0, 0.8)
+      outline: 2000px solid rgba(0, 0, 0, 0.6)
     }
 
     .form input {
@@ -104,8 +104,9 @@
       font-size: 14px;
       padding: 5px 16px;
     }
+
     .options a:hover {
-     background-color: #eee;
+      background-color: #eee;
     }
 
     .options a sup {
@@ -126,18 +127,22 @@
 </head>
 
 <body>
-
+  <div>:focus表示当前元素处于focus状态时候干嘛干嘛，而:focus-within表示当前元素或者当前元素的子元素处于focus状态时候，当前这个元素该如何如何如何</div>
   <div class="code">
     <h4>语法:</h4>
     <pre>
 
-      :focus-within 表示当前元素或者当前元素的子元素处于focus状态时候，当前这个元素该如何如何如何。
+      form:focus-within{
+        XXXX
+      }
 
     </pre>
+    表示表示form元素自身，或者form内部的子元素处于focus状态时候，给form一些样式。<br>
+    也就是说，子元素focus，可以让任意父级元素样式发生变化，间接的实现了父元素选择器。
 
   </div>
   <br>
- 
+
   <br>
 
   <h4>示例1:</h4>

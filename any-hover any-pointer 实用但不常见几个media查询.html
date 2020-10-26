@@ -17,7 +17,7 @@
     }
 
 
-    @media (pointer: coarse) {
+    @media (any-pointer: coarse) {
       input[type="checkbox"] {
         width: 30px;
         height: 30px;
@@ -28,13 +28,14 @@
 
 <body>
   <div class="code">
-    <div>之前我们判断当前设备</div>
+    <div>以前我们判断当前设备是触摸屏还是PC比较麻烦，比如，通过判断屏幕密度，但PC现在已经有多倍屏了，通过判断屏幕尺寸，又无法区分平板。或者是用js判断也是一个不错的选择，但仍然显得不够简便直接。</div>
+    <div>其实有一种现成的解决方案：any-hover，可以间接满足我们判断设备类型。</div>
     <h4>语法:</h4>
     <pre>
 
       any-hover: 
-      none  当前设备不支持鼠标悬停。
-      hover 当前设备支持鼠标悬停。
+      none  当前设备不支持鼠标悬停，即为触摸屏。
+      hover 当前设备支持鼠标悬停，即为PC屏。
 
       例如：
       @media (any-hover: none) {
@@ -42,25 +43,42 @@
           text-decoration: none;
         }
       }
+
+
     </pre>
+    <div>类似的还有一个any-pointer</div>
+    <h4>语法:</h4>
+    <pre>
+
+      any-pointer: 
+      none  当前设备不支持鼠标点击。
+      coarse 当前设备点击操作不是很精准，如移动端。
+      fine 当前设备点击操作很精准，如有鼠标的PC。
+
+      例如：
+      @media (any-pointer: coarse) {
+        input[type="checkbox"] {
+          width: 30px;
+          height: 30px;
+        }
+      }
+
 
   </div>
   <br>
 
-  <p>any-hover媒体查询可以用来用来精确控制不同设备上的hover交互行为，因此对于跨平台的网页，响应式网站，非常有用。</p><br>
+  <p>any-hover媒体查询可以用来用来精确控制不同设备上的hover交互行为，因此对于跨平台的网页，响应式网站或简单的提高用户体验，非常有用。</p>
   <p>除了常用的各种平板，还有现在兴起的物联网，如车内多媒体屏，银行自助机，</p><br>
   <br>
   <h4>示例1:</h4>
-  <div>基本效果：</div><br>
-
   <div class="box1">
-    <p>在触摸设备与PC不同：</p>
+    <p>借助这个查询，可以切换在不同设备上的显示样式：</p>
     <a href="">百度</a>
   </div>
   <br>
   <br>
   <h4>示例2:</h4>
-  <div>尝试切换设备模式：</div><br>
+  <div>当一个选框在PC上时，我们有鼠标能精确实施点击，但是如果切换到触摸屏上，点击操作可能就不会很精准，这个时候就可以借助这个查询来扩大选框的尺寸：</div><br>
 
   <div class="box2">
     <label for="">选择：</label><input type="checkbox" name="" id="">
@@ -70,9 +88,15 @@
 
   <br>
   <br>
+  
 
+
+ 
   <br>
+  总结：一般一个网页要同时适配桌面浏览器和手机浏览器，通常会是单独的两套内容和样式，完全靠any-hover反而带来不便。它更加适用场景是桌面端浏览器页面，当我们使用大屏的触屏设备访问网页的时候，hover和pointer媒体查询的作用才能够得到大的体现。 <br>
 
+  比如，很多桌面端网页的导航会使用hover悬停出现下拉列表，但是在iPad上，或者其他产品的大的触屏设备上，这个重要的下拉导航我们就很难让它出现，此时，借助hover特征检测就可以将其显示出来。这样，使用大屏触碰设备访问我们网站，主功能就会依然保持正常，而又不必专门定制一套样式。
+  <br>
   <br>
   <br>
   <br>
