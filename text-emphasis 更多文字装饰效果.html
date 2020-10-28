@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+	<link rel="stylesheet" href="./style/common.css">
+
+	<style>
+		* {
+			box-sizing: content-box;
+		}
+
+		.box1 {
+			width: 400px;
+			scroll-snap-type: y mandatory;
+			overflow-x: hidden;
+			overflow-y: auto;
+			overscroll-behavior: none;
+			/* 滚动不影响body */
+			margin-top: 20px;
+		}
+
+
+		.box1 span {
+			text-emphasis: circle #444;
+			text-emphasis-position: under;
+			-webkit-text-emphasis: circle #444;
+			-webkit-text-emphasis-position: under;
+		}
+
+		.box2 span {
+			font-size: 20px;
+			text-emphasis: '❤'#f50;
+			text-emphasis-position: under;
+			-webkit-text-emphasis: '❤'#f50;
+			-webkit-text-emphasis-position: over;
+
+		}
+	</style>
+</head>
+
+<body>
+	<div class="code">
+		<div>以往给部分文字增加强调的时候，一般会给它高亮、加粗或下划线装饰，如果UI想给它一些附加性质的装饰，一般的想法是使用伪元素，如：</div>
+		<p class="box1">请选择下列<span>不</span>正确的一项</p>
+		<h4>语法:</h4>
+		<pre>
+
+      text-emphasis
+      text-emphasis-color       颜色
+      text-emphasis-style      	形式，[ filled | open ] || [ dot | circle | double-circle | triangle | sesame ]或string
+      text-emphasis-position    位置，[ over | under ] && [ right | left ]
+
+      text-emphasis = text-emphasis-color + text-emphasis-style，是后两者的缩写，但不包含text-emphasis-position，它需要单独出来写。
+    </pre>
+
+	</div>
+	<br>
+	text-emphasis-style各个装饰符具体的效果如下所示：<br>
+	<img src="./img/emphasis.png" alt="">
+
+	<br>
+	<br>
+	<br>
+	<h4>示例1:</h4>
+	<div>好玩的效果：</div><br>
+	</div><br>
+	<div class="box2">
+		给你<span>比心心</span>
+	</div>
+	<br>
+	<br>
+	<br>
+	<h4>注意点：</h4>
+	
+	<ol>
+		<li>强调装饰符的字号是主文字内容字号的一半</li>
+		<li>行高不是很高，则强调装饰符会自动增加当前这一行所占据的高度</li>
+		<li>强调装饰符和正文之间的距离是无法控制</li>
+		<li>如果指定的是多个字符，则只会使用第1个字符作为强调装饰符</li>
+	</ol>
+
+
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<h4>兼容性:</h4>
+	<iframe width="800" height="500" src="https://www.caniuse.com/text-emphasis" frameborder="0"></iframe>
+
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<script>
+		[].slice.call(document.querySelectorAll('input[name="shape1"]')).forEach(function (radio) {
+			radio.addEventListener('click', function () {
+				document.querySelector('.shape2').style.shapeOutside = this.value;
+			});
+		});
+
+
+		[].slice.call(document.querySelectorAll('input[name="shape2"]')).forEach(function (radio) {
+			radio.addEventListener('click', function () {
+				document.querySelector('.shape3').style.shapeOutside = this.value;
+				document.querySelector('.shape3').style.clipPath = this.value;
+			});
+		});
+
+
+
+		var eleShape = document.getElementById('shape100');
+		var eleBox = document.getElementById('box2');
+		eleShape.style.height = eleBox.scrollHeight + 'px';
+
+		var funShape = function () {
+			var scrollTop = eleBox.scrollTop;
+			// 滚动偏移应用在shape-outside上
+			var shapeOutside = 'polygon(0 0, 0 ' + (130 + scrollTop) + 'px, 16px ' + (134 + scrollTop) + 'px, 30px ' + (146 + scrollTop) + 'px, 30px ' + (294 + scrollTop) + 'px, 16px ' + (306 + scrollTop) + 'px, 0 ' + (310 + scrollTop) + 'px, 0 0)';
+			eleShape.style.webkitShapeOutside = shapeOutside;
+			eleShape.style.shapeOutside = shapeOutside;
+		};
+		// 滚动时候实时改变shape形状
+		eleBox.addEventListener('scroll', funShape);
+		funShape();
+
+	</script>
+</body>
+
+</html>

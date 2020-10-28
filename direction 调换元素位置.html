@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+	<link rel="stylesheet" href="./style/common.css">
+
+	<style>
+		* {
+			box-sizing: content-box;
+		}
+
+
+
+		.box1 {
+			width: 300px;
+			color: #fff;
+			line-height: 2;
+			text-align: center;
+			border: 1px solid #333;
+			padding: 50px 0;
+		}
+
+
+	</style>
+</head>
+
+<body>
+	<div class="code"><br>
+		<br>
+		<div>实际开发中的一个痛点：</div><br>
+		<br>
+		<img src="./img/modal.png" alt=""><br>
+		<br>
+		<div>
+			开发中使用的UI组件一般dom的结构顺序是固定的，当我们要使用一套组件的时候，会在原来的基础上做些调整，但大部分样式与组件本来样式区别不大，足以很顺畅的使用起来，但偏偏设计师会提出一些比较头疼的意见，比如说让这里的<b>确定</b>和<b>取消</b>两个按钮换个位置。
+		</div>
+		<div>我们首先想到的给<b>取消</b>按钮设置float: right就能实现了</div>
+		<div>但，要是像按钮居中的情况下呢？</div>
+		<img src="./img/modal2.png" alt=""><br>
+		<div>这个时候给按钮设置float: right，它只会飞向容器的右侧，无法居中了</div><br>
+		<div>在开发中很多时候经常会遇到这样的小痛点，可能会捉急使用一些成本比较大的方式去解决。但如果对一些比较冷门的属性比较熟悉，发现这些冷门的属性刚好就能完美的解决掉这些痛点</div><br>
+		<div>实际上解决这个小的痛点有个非常简单的方法，就是direction: rtl</div>
+		<br><br>
+
+		<h4>语法:</h4>
+		<pre>
+
+      direction: ltr;      left-to-right，从左到右，默认值
+      direction: rtl;      right-to-left，从右到左
+
+    </pre>
+
+	</div>
+	<h4>注意点：</会>
+	<div>改变的只能是内联块级的左右顺序，如button, img这样的元素</div>
+	<br>
+	<br>
+	<br>
+
+	<h4>示例1:</h4>
+	<div>这是一个组件：</div><br>
+	</div><br>
+	<div class="box1">
+		<button>确定</button> <button>取消</button>
+	</div>
+	</p>
+
+	
+	<br>
+	<br>
+
+	<br>
+
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+
+	、
+	<br>
+	<br>
+	<br>
+	<h4>兼容性:</h4>
+	<iframe width="800" height="500" src="https://www.caniuse.com/direction" frameborder="0"></iframe>
+
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<script>
+	
+	</script>
+</body>
+
+</html>

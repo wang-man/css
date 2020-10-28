@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+	<link rel="stylesheet" href="./style/common.css">
+
+	<style>
+		* {
+			box-sizing: content-box;
+		}
+
+
+
+		.box1 {
+			width: 300px;
+			color: #fff;
+			line-height: 2;
+		}
+
+
+		.box1 .text {
+			border-radius: 30px;
+			background-color: #cd0000;
+		}
+
+		.box1 .text2 {
+			/* box-decoration-break: clone;
+			-webkit-box-decoration-break: clone; */
+		}
+
+
+		.box2 {
+			columns: 2;
+			width: 400px;
+		}
+
+		.box2 .text {
+			/* display: inline;; */
+			line-height: 2;
+			/* box-shadow: 0px 1px 3px 0px #444; */
+			border: 1px solid;
+			/* box-decoration-break: clone;
+			-webkit-box-decoration-break: clone; */
+
+		}
+	</style>
+</head>
+
+<body>
+	<div class="code">
+		<div>默认情况下，元素的跨行或跨列渲染都会被裁剪分割，各得一部分，这样的话本来是同属一个元素，却造成了样式无法统一。比如：</div>
+		<div class="box1">
+			<span class="text">这是一段文字，却因为父容器变窄，导致了我不得不换行被砍成了几段，我又不是一条蚯蚓。。。</span>
+		</div>
+
+		<div>这个时候可能不得不将一段文字分作几个元素，却又无法控制容器尺寸再次将文字挤压换行</div>
+		<div>这样的问题虽然小，但如果没有找到合适的解决方法可能会花很长时间，但其实这样的问题有天然的属性解决：box-decoration-break。</div>
+		<br><br><br>
+		<h4>语法:</h4>
+		<pre>
+
+      box-decoration-break: slice;  slice是切片，分割的意思。默认值
+      box-decoration-break: clone;	clone是克隆，独立的意思。表示断开的各个盒子样式都能保持样式统一
+
+    </pre>
+		但只能影响部分样式，如下： <br>
+		background <br>
+		border <br>
+		border-image <br>
+		box-shadow <br>
+		border-radius <br>
+		clip-path <br>
+		margin <br>
+		padding <br>
+	</div>
+	<br>
+	<br>
+	<br>
+
+	<h4>示例1:</h4>
+	<div>基本效果：</div><br>
+	</div><br>
+	<p class="list">
+		<input type="radio" id="switch1" value="slice" name="switchBreak1" checked><label for="switch1">slice</label>
+		<input type="radio" id="switch2" value="clone" name="switchBreak1"><label for="switch2">clone</label>
+	</p>
+
+	<div class="box1">
+		<span class="text text2" id="text2">这是一段文字，却因为父容器变窄，导致了我不得不换行被砍成了几段，我又不是一条蚯蚓。。。</span>
+	</div>
+	<br>
+	<br>
+	<br>
+
+	<br>
+	<h4>示例2:</h4>
+	<div>多栏布局，可以加边框了：</div><br>
+	</div><br>
+	<p class="list">
+		<input type="radio" id="switch3" value="slice" name="switchBreak2" checked><label for="switch3">slice</label>
+		<input type="radio" id="switch4" value="clone" name="switchBreak2"><label for="switch4">clone</label>
+	</p>
+
+	<div class="box2">
+		<p class="text text2" id="text3">最大的亮点在于加入了120HZ，对于像答主这样没用过120HZ手机的用户，配合MIUI12流畅的动画，在不掉帧的时候感知极强，但也仅限于和其他手机对比，跟iPad
+			Pro的120HZ比起来还差得多，一分钱一分货，这点没什么可挑剔的，不是全局120HZ，官方叫做：自适应帧率，为了省电，功过参半吧。看网上说这条的也不少，其实这里还是建议要求不高的用户平时使用都改成60hz，在玩支持高帧率游戏的时候在开120hz，掉帧版的120hz体验不如60hz，哪怕只有偶尔的一两个瞬间掉帧，而且120hz真的真的是太费电了。（对比屏幕尺寸相同，电池大小相同的redmi
+			note8 pro得出的结论）
+			<b>性能</b>：超大杯搭载的天玑1000+可以说是一大亮点，毕竟理论性能仅次于A13和865，强于麒麟990 5G。说到这里，我还想说说手中这台搭载着联发科helioG90T处理器的note8
+			pro，12nm制程，2xA76+6xA55的组合，理论性能稍次于麒麟810，但制程落后了一代半，刚发布的时候被黑的体无完肤，小米为了镇得住这颗“火龙”，散热系统相当给力，外加很少有人拿千元机进行高负荷操作，搭配4500mah的大电池，所以实际表现算是差强人意。很大程度上改观了大家对联发科“发热”，“一核有难九核围观”的现象
+		</p>
+	</div>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<h4>兼容性:</h4>
+	<iframe width="800" height="500" src="https://www.caniuse.com/box-decoration-break" frameborder="0"></iframe>
+
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<script>
+		var text2 = document.querySelector('#text2');
+
+		[].slice.call(document.querySelectorAll('input[name="switchBreak1"]')).forEach(function (radio) {
+			radio.addEventListener('click', function () {
+				text2.style.webkitBoxDecorationBreak = this.value;
+				text2.style.boxDecorationBreak = this.value;
+				// document.querySelector('#text2').style.boxDecorationBreak = this.value;
+				// -webkit-box-decoration-break: clone;
+			});
+		});
+		var text3 = document.querySelector('#text3');
+
+		[].slice.call(document.querySelectorAll('input[name="switchBreak2"]')).forEach(function (radio) {
+			radio.addEventListener('click', function () {
+				text3.style.webkitBoxDecorationBreak = this.value;
+				text3.style.boxDecorationBreak = this.value;
+				// document.querySelector('#text2').style.boxDecorationBreak = this.value;
+				// -webkit-box-decoration-break: clone;
+			});
+		});
+	</script>
+</body>
+
+</html>
