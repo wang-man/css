@@ -9,4 +9,9 @@
 }
 h4{
   margin: 10px 0;
+  padding: 3px 10px;
+  background-color:gray ;
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
 }
