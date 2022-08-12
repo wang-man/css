@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <title></title>
+    <link rel="stylesheet" href="./style/common.css" />
+    <style>
+      .main {
+        width: 375px;
+        height: 480px;
+        border: 3px solid #ddd;
+        overflow-y: scroll;
+        padding: 10px;
+        overscroll-behavior: contain;
+        padding-top: 0;
+
+        display: flex;
+        flex-direction: column;
+      }
+      .content {
+        flex: 1;
+        /* min-height: calc(100% - 50px); */
+
+        padding-bottom: 10px;
+      }
+      .contanier {
+        min-height: 100%;
+        position: relative;
+      }
+      footer {
+        /* position: absolute;
+        bottom: 0;
+        width: 100%; */
+      }
+
+      .main article {
+        line-height: 2;
+      }
+    </style>
+  </head>
+
+  <body id="header">
+    <ul>
+      <li>
+        <h3>flex方式</h3>
+        <div>
+          .main { display: flex; flex-direction: column; } .content { flex: 1;
+          }<br />
+          一定要注意在flex容器中
+          .content如果设置为明确的width或height是不会有效的，要么设置min-height要么自动撑满才能决定自己真正的尺寸
+        </div>
+      </li>
+      <li>
+        <h3>position：sticky</h3>
+        <div>footer {position：sticky; top: 100% }</div>
+      </li>
+      <li>
+        <h3>使用 calc 函数实现</h3>
+        <div>min-height: calc(100% - 50px);</div>
+      </li>
+      <li>
+        <h3>内容区min-height加padding-bottom实现</h3>
+        <div>略去</div>
+      </li>
+      <li>
+        <h3>绝对定位</h3>
+        <div>
+          /* 2. 让子元素元素相对于容器元素进行定位，并设置容器元素最小高度为100%
+          */ .main { position: relative; min-height: 100%; } /* 3.
+          在中间区域设置 padding-bottom 为footer 的高度 */ .container {
+          padding-bottom: 100px; } /*
+          由于开启了绝对定位，宽度成了自适应，设置为100% bottom:0 始终保持底部
+          */ .footer { position: absolute; width: 100%; bottom: 0; }
+        </div>
+      </li>
+      <li>
+        <h3>使用 grid 布局</h3>
+        <div>
+          .main { /* 开启grid布局 */ display: grid; grid-template-rows: auto 1fr
+          auto; /*
+          设置最小高度为当前视口，使不管中间部分有多高，始终都可以保持在底部 */
+          min-height: 100vh; } 作者：一碗周
+          链接：https://juejin.cn/post/6966605541263015950 来源：稀土掘金
+          著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+        </div>
+      </li>
+    </ul>
+    <div class="main">
+      <!-- <div class="contanier"> -->
+      <div class="content">
+        <h2>这是标题</h2>
+        <article>
+          <p>
+            Javascript是近年来很好受瞩目的一门编程语言，它既支持面向对象编程，也支持函数式编程。本书专门介绍函数式编程的特性。全书共9章，分别介绍了函数式编程、一等函数与Applicative编程、变量的作用域和闭包、高阶函数、由函数构建函数、递归、纯度和不变性以及更改政策、基于流的编程、无类编程。除此之外，附录中还介绍了更多函数式。
+          </p>
+          <p id="more-text" style="display: none">
+            是近年来很好受瞩目的一门编程语言，它既支持面向对象编程，也支持函数式编程。本书专门介绍函数式编程的特性。全书共9章，分别介绍了函数式编程、一等函数与Applicative编程、变量的作用域和闭包、高阶函数、由函数构建函数、递归、纯度和不变性以及更改政策、基于流的编程、无类编程。除此之外，附录中还介绍了更多函数式。
+            本书内容全面，示例丰富，适合想要了解函数式编程的程序员和学习的函数式程序员阅读。
+          </p>
+        </article>
+      </div>
+      <footer>
+        <button style="width: 100%">按钮</button>
+      </footer>
+      <!-- </div> -->
+    </div>
+    <button onclick="showMoreText()">点我改变文字长度</button>
+    <sub>底部按钮位置随着页面长度撑满整屏而随页面滚动</sub>
+    <br />
+    <br />
+    <br />
+
+    <script>
+      function showMoreText(params) {
+        var moreText = document.querySelector("#more-text");
+        if (moreText.style.display === "none") {
+          moreText.style.display = "inherit";
+        } else {
+          moreText.style.display = "none";
+        }
+      }
+    </script>
+  </body>
+</html>
